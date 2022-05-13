@@ -1,5 +1,7 @@
 # url-parser-stairway-pattern
 
+<details>
+<summary>Text file with Uri addresses.</summary>
 
 ```
 https://habrahabr.ru/company/it-grad/blog/341486/
@@ -19,6 +21,10 @@ https://docs.microsoft.com/ru-ru/dotnet/api/system.linq.queryable.where?view=net
 https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer?view=net-6.0
 https://metanit.com/python/django/1.1.php
 ```
+</details>
+
+<details>
+<summary>XML file with Uri addresses.</summary>
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -144,9 +150,10 @@ https://metanit.com/python/django/1.1.php
     </uriAdress>
 </uriAdresses>
 ```
+</details>
 
-
-
+<details>
+<summary>XML file with Uri addresses.</summary>
 ```
 [
   {
@@ -284,4 +291,6 @@ https://metanit.com/python/django/1.1.php
     ]
   }
 ]
+</details>
+
 ```
