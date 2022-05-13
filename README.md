@@ -154,6 +154,7 @@ https://metanit.com/python/django/1.1.php
 
 <details>
 <summary>JSON file with Uri addresses.</summary>
+
 ```
 [
   {
