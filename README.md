@@ -9,7 +9,7 @@ http://www.example.com/customers/12345
 http://www.example.com/customers/12345/orders/98765
 https://qaevolution.ru/znakomstvo-s-testirovaniem-api/
 http://
-ps://metanit.com/python/django/1.1.php
+https://www.contoso.com/Home/Index.htm?q1=v1&q2=v2
 http://aaa.com/temp?key=Foo&value=Bar&id=42
 https://www.w3schools.com/html/default.asp
 http://www.ninject.org/learn.html
@@ -65,13 +65,16 @@ https://metanit.com/python/django/1.1.php
         </path>
     </uriAdress>
     <uriAdress>
-        <scheme name="ps" />
-        <host name="metanit.com" />
+        <scheme name="https" />
+        <host name="www.contoso.com" />
         <path>
-            <segment>python</segment>
-            <segment>django</segment>
-            <segment>1.1.php</segment>
+            <segment>Home</segment>
+            <segment>Index.htm</segment>
         </path>
+        <query>
+            <parameter key="q1" value="v1" />
+            <parameter key="q2" value="v2" />
+        </query>
     </uriAdress>
     <uriAdress>
         <scheme name="http" />
@@ -193,13 +196,17 @@ https://metanit.com/python/django/1.1.php
     ]
   },
   {
-    "scheme": "ps",
-    "host": "metanit.com",
+    "scheme": "https",
+    "host": "www.contoso.com",
     "path": [
-      "python",
-      "django",
-      "1.1.php"
-    ]
+      "Home",
+      "Index.htm"
+    ],
+    "query": [
+      {
+        "q1": "v1",
+        "q2": "v2"
+      },
   },
   {
     "scheme": "http",
