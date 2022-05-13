@@ -153,7 +153,7 @@ https://metanit.com/python/django/1.1.php
 </details>
 
 <details>
-<summary>XML file with Uri addresses.</summary>
+<summary>JSON file with Uri addresses.</summary>
 ```
 [
   {
