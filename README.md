@@ -291,6 +291,6 @@ https://metanit.com/python/django/1.1.php
     ]
   }
 ]
-</details>
 
 ```
+</details>
