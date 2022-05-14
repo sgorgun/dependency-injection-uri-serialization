@@ -36,13 +36,16 @@
         </path>
     </uriAdress>
     <uriAdress>
-        <scheme name="ps" />
-        <host name="metanit.com" />
+        <scheme name="https" />
+        <host name="www.contoso.com" />
         <path>
-            <segment>python</segment>
-            <segment>django</segment>
-            <segment>1.1.php</segment>
+            <segment>Home</segment>
+            <segment>Index.htm</segment>
         </path>
+        <query>
+            <parameter key="q1" value="v1" />
+            <parameter key="q2" value="v2" />
+        </query>
     </uriAdress>
     <uriAdress>
         <scheme name="http" />
