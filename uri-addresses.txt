@@ -1,9 +1,9 @@
-﻿https://habrahabr.ru/company/it-grad/blog/341486/
+https://habrahabr.ru/company/it-grad/blog/341486/
 http://www.example.com/customers/12345
 http://www.example.com/customers/12345/orders/98765
 https://qaevolution.ru/znakomstvo-s-testirovaniem-api/
 http://
-ps://metanit.com/python/django/1.1.php
+https://www.contoso.com/Home/Index.htm?q1=v1&q2=v2
 http://aaa.com/temp?key=Foo&value=Bar&id=42
 https://www.w3schools.com/html/default.asp
 http://www.ninject.org/learn.html
