@@ -35,12 +35,21 @@
     ]
   },
   {
-    "scheme": "ps",
-    "host": "metanit.com",
+    "scheme": "https",
+    "host": "www.contoso.com",
     "path": [
-      "python",
-      "django",
-      "1.1.php"
+      "Home",
+      "Index.htm"
+    ],
+    "query": [
+      {
+        "key": "q1",
+        "value": "v1"
+      },
+      {
+        "key": "q2",
+        "value": "v2"
+      }
     ]
   },
   {
