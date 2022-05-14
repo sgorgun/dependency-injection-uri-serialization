@@ -204,9 +204,14 @@ https://metanit.com/python/django/1.1.php
     ],
     "query": [
       {
-        "q1": "v1",
-        "q2": "v2"
+        "key": "q1",
+        "value": "v1"
       },
+      {
+        "key": "q2",
+        "value": "v2"
+      }
+    ]
   },
   {
     "scheme": "http",
