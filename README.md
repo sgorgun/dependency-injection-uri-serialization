@@ -49,8 +49,6 @@ https://metanit.com/python/django/1.1.php
 
 ![](/Images/Architecture2.png)
 
-Do not serialize Uri's that do not match the specified `<scheme>://<host>/<path>?<query>`-pattern, log the information by marking the specified strings as not valid for serialization. To log use `NLog.Extensions.Logging` package.
-
 XML format for the data in the `uri-addresses.txt` file will be presented in the form
 <details>
 <summary><b>uri-addresses.xml</b> file with Uri addresses.</summary>
@@ -339,7 +337,9 @@ JSON format for the data in the `uri-addresses.txt` file will be presented in th
 ```
 </details>
 
-3. Pass all tests.
-4. Demonstrate how it works with an example console application.
+- Do not serialize Uri's that do not match the specified `<scheme>://<host>/<path>?<query>`-pattern, log the information by marking the specified strings as not valid for serialization. To log use `NLog.Extensions.Logging` package.
+
+- Pass all tests.
+- Demonstrate how it works with an example console application.
 - To resolve dependencies use the `Microsoft.Extensions.DependencyInjection` package.
 - To configuration console application use `Microsoft.Extensions.Configuration` package.
