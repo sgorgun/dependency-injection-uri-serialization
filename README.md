@@ -2,7 +2,7 @@
 
 ## Task Description
 
-The text file stores, line by line, information about URLs represented as `<scheme>://<host>/<path>?<query>`. For example, see `uri-addresses.txt` file:
+The text file stores, line by line, information about Uri's represented as `<scheme>://<host>/<path>?<query>`? where `path` may consist of segments of the form `segment1/segment2/.../segmentN`, `query` consist pairs of the form `key1=value1&`. For example, see content of the `uri-addresses.txt` file:
 
 <details>
 <summary>Text file with Uri addresses.</summary>
