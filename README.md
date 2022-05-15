@@ -38,7 +38,6 @@ https://metanit.com/python/django/1.1.php
 </details>
 
 Develop a type system for exporting data that represent as a string into other format, for example XML or JSON format. XML format for the data in the `uri-addresses.txt` file will be presented in the form
-
 <details>
 <summary><b>uri-addresses.xml</b> file with Uri addresses.</summary>
 
@@ -171,10 +170,9 @@ Develop a type system for exporting data that represent as a string into other f
 ```
 </details>
 
-<details>
-
 JSON format for the data in the `uri-addresses.txt` file will be presented in the form
 
+<details>
 <summary><b>uri-addresses.json</b> file with Uri addresses.</summary>
 
 ```
