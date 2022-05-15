@@ -14,7 +14,7 @@ Use this types for the solution following task.
 
 For example, see content of the `uri-addresses.txt` file
 <details>
-<summary><b>uri-addresses.txt</b> file with Uri addresses.</summary>
+<summary><b>uri-addresses.txt</b> file with Uri-addresses.</summary>
 
 ```
 https://habrahabr.ru/company/it-grad/blog/341486/
@@ -51,7 +51,7 @@ https://metanit.com/python/django/1.1.php
 
 XML format for the data in the `uri-addresses.txt` file will be presented in the form
 <details>
-<summary><b>uri-addresses.xml</b> file with Uri addresses.</summary>
+<summary><b>uri-addresses.xml</b> file with Uri-addresses.</summary>
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -185,7 +185,7 @@ XML format for the data in the `uri-addresses.txt` file will be presented in the
 JSON format for the data in the `uri-addresses.txt` file will be presented in the form
 
 <details>
-<summary><b>uri-addresses.json</b> file with Uri addresses.</summary>
+<summary><b>uri-addresses.json</b> file with Uri-addresses.</summary>
 
 ```
 [
