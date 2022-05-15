@@ -2,6 +2,8 @@
 
 ## Task Description
 
+The system of the types that describe the logic of the export of the string representation of the data in the other format  are present in solution
+
 The text file stores, line by line, information about Uri's that represent as `<scheme>://<host>/<path>?<query>`? where `path` may consist of segments of the form `segment1/segment2/.../segmentN`, `query` consist pairs of the form `key1=value1&...&keyK=valueK`. For example, see content of the `uri-addresses.txt` file:
 
 <details>
@@ -26,6 +28,8 @@ https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializ
 https://metanit.com/python/django/1.1.php
 ```
 </details>
+
+Develop a type system for exporting data that represent as a string into other? for example XML or JSON format.
 
 <details>
 <summary>XML file with Uri addresses.</summary>
