@@ -8,7 +8,7 @@ The system of the types that describe the logic of the export of the string repr
 
 Use this types for the solution following task.
 
-- The some receiver obtains, line by line, information about Uri's that represent of the form `<scheme>://<host>/<path>?<query>`, where   
+1. The some receiver obtains, line by line, information about Uri's that represent of the form `<scheme>://<host>/<path>?<query>`, where   
   - `path` may consist of segments of the form `segment1/segment2/.../segmentN`, 
   - `query` consist pairs of the form `key1=value1&...&keyK=valueK`. 
 
@@ -40,7 +40,7 @@ https://metanit.com/python/django/1.1.php
 
 ![](/Images/Architecture3.png)
 
-- Develop a system of the types for exporting data that represent as a string into other XML and JSON format. For serialization use following technologies:
+2. Develop a system of the types for exporting data that represent as a string into other XML and JSON format. For serialization use following technologies:
   - XmlWrite class
   - XmlSerializer class
   - XML-DOM model
@@ -48,6 +48,8 @@ https://metanit.com/python/django/1.1.php
   - JsonSerializer.
 
 ![](/Images/Architecture2.png)
+
+For those Uri's that do not match the specified pattern, log the information by marking the specified strings as raw. To logging use `NLog.Extensions.Logging` package.
 
 XML format for the data in the `uri-addresses.txt` file will be presented in the form
 <details>
@@ -337,7 +339,7 @@ JSON format for the data in the `uri-addresses.txt` file will be presented in th
 ```
 </details>
 
-- Pass all tests.
-- Demonstrate how it works with an example console application.
+3. Pass all tests.
+4. Demonstrate how it works with an example console application.
 - To resolve dependencies use the `Microsoft.Extensions.DependencyInjection` package.
 - To configuration console application use `Microsoft.Extensions.Configuration` package.
