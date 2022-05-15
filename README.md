@@ -12,10 +12,7 @@ The some receiver obtains, line by line, information about Uri's that represent 
   - `path` may consist of segments of the form `segment1/segment2/.../segmentN`, 
   - `query` consist pairs of the form `key1=value1&...&keyK=valueK`. 
 
-Сonsider getting data from both text file and memory.
-
 For example, see content of the `uri-addresses.txt` file
-
 <details>
 <summary><b>uri-addresses.txt</b> file with Uri addresses.</summary>
 
@@ -39,11 +36,15 @@ https://metanit.com/python/django/1.1.php
 ```
 </details>
 
+Сonsider getting data from both text file and memory.
+
+![](/Images/Architecture3.png)
+
 Develop a type system for exporting data that represent as a string into other format, for example XML or JSON format - use following technologies:
   - XmlWrite class
   - XmlSerializer class
-  - XML-Dom model
-  - X-Dom model
+  - XML-DOM model
+  - X-DOM model
   - JsonSerializer.
 
 ![](/Images/Architecture2.png)
