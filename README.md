@@ -11,7 +11,9 @@ Use this types for the solution following task.
 The some receiver obtains, line by line, information about Uri's that represent of the form `<scheme>://<host>/<path>?<query>`. Where   
   - `path` may consist of segments of the form `segment1/segment2/.../segmentN`, 
   - `query` consist pairs of the form `key1=value1&...&keyK=valueK`. 
-  
+
+Сonsider getting data from both text file and memory.
+
 For example, see content of the `uri-addresses.txt` file
 
 <details>
@@ -37,7 +39,16 @@ https://metanit.com/python/django/1.1.php
 ```
 </details>
 
-Develop a type system for exporting data that represent as a string into other format, for example XML or JSON format. XML format for the data in the `uri-addresses.txt` file will be presented in the form
+Develop a type system for exporting data that represent as a string into other format, for example XML or JSON format - use following technologies:
+  - XmlWrite class
+  - XmlSerializer class
+  - XML-Dom model
+  - X-Dom model
+  - JsonSerializer.
+
+![](/Images/Architecture2.png)
+
+XML format for the data in the `uri-addresses.txt` file will be presented in the form
 <details>
 <summary><b>uri-addresses.xml</b> file with Uri addresses.</summary>
 
