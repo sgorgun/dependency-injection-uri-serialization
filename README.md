@@ -1,5 +1,9 @@
 # url-parser-stairway-pattern
 
+## Task Description
+
+The text file stores, line by line, information about URLs represented as `<scheme>://<host>/<path>?<query>`. For example, see `uri-addresses.txt` file:
+
 <details>
 <summary>Text file with Uri addresses.</summary>
 
