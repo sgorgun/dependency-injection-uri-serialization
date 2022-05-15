@@ -8,7 +8,7 @@ The system of the types that describe the logic of the export of the string repr
 
 Use this types for the solution following task.
 
-The some receiver obtains, line by line, information about Uri's that represent of the form `<scheme>://<host>/<path>?<query>`. Where   
+The some receiver obtains, line by line, information about Uri's that represent of the form `<scheme>://<host>/<path>?<query>`, where   
   - `path` may consist of segments of the form `segment1/segment2/.../segmentN`, 
   - `query` consist pairs of the form `key1=value1&...&keyK=valueK`. 
 
@@ -40,7 +40,7 @@ https://metanit.com/python/django/1.1.php
 
 ![](/Images/Architecture3.png)
 
-Develop a type system for exporting data that represent as a string into other format, for example XML or JSON format - use following technologies:
+Develop a system of the types for exporting data that represent as a string into other XML and JSON format. For serialization use following technologies:
   - XmlWrite class
   - XmlSerializer class
   - XML-DOM model
