@@ -18,37 +18,33 @@ Use this types to develop a type system
   
 #### Task details.
 - In implementation consider getting data from both [text](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/TextFileReceiver/TextStreamReceiver.cs#L11) file and [memory](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/InMemoryReceiver/InMemoryDataReceiver.cs#L9).
-  <details><summary>See scheme.</summary>
+  <details><summary>See a scheme.</summary>
 
     ![](/Images/Architecture3.png)
 
   </details>
+  <details>
+  <summary>See an example of string data.</summary>
 
-For example, see content of the `uri-addresses.txt` file
-<details>
-<summary><b>uri-addresses.txt</b> file with Uri-addresses.</summary>
-
-```
-https://habrahabr.ru/company/it-grad/blog/341486/
-http://www.example.com/customers/12345
-http://www.example.com/customers/12345/orders/98765
-https://qaevolution.ru/znakomstvo-s-testirovaniem-api/
-http://
-https://www.contoso.com/Home/Index.htm?q1=v1&q2=v2
-http://aaa.com/temp?key=Foo&value=Bar&id=42
-https://www.w3schools.com/html/default.asp
-http://www.ninject.org/learn.html
-https:.php
-https://docs.microsoft.com/ru-ru/dotnet/csharp/programming-guide/concepts/linq/linq-to-xml-overview
-docs.microsoft.com
-microsoft.com/ru-ru/dotnet/csharp/programming-guide/concepts/l
-https://docs.microsoft.com/ru-ru/dotnet/api/system.linq.queryable.where?view=netframework-4.8
-https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer?view=net-6.0
-https://metanit.com/python/django/1.1.php
-```
-</details>
-
-
+  ```
+  https://habrahabr.ru/company/it-grad/blog/341486/
+  http://www.example.com/customers/12345
+  http://www.example.com/customers/12345/orders/98765
+  https://qaevolution.ru/znakomstvo-s-testirovaniem-api/
+  http://
+  https://www.contoso.com/Home/Index.htm?q1=v1&q2=v2
+  http://aaa.com/temp?key=Foo&value=Bar&id=42
+  https://www.w3schools.com/html/default.asp
+  http://www.ninject.org/learn.html
+  https:.php
+  https://docs.microsoft.com/ru-ru/dotnet/csharp/programming-guide/concepts/linq/linq-to-xml-overview
+  docs.microsoft.com
+  microsoft.com/ru-ru/dotnet/csharp/programming-guide/concepts/l
+  https://docs.microsoft.com/ru-ru/dotnet/api/system.linq.queryable.where?view=netframework-4.8
+  https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer?view=net-6.0
+  https://metanit.com/python/django/1.1.php
+  ```
+  </details>
 
  Use the following technologies for serialization:t it to other XML and JSON format. For serialization use following technologies:
   - XmlWrite class
