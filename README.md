@@ -47,11 +47,11 @@ Use this types to develop a type system
   </details>
 
 - In implementation the serialization logic consider following .NET technologies:
-  - XmlWrite class
-  - XmlSerializer class
-  - XML-DOM model
-  - X-DOM model
-  - JsonSerializer.
+  - [XmlWrite](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/XmlWriter.Serialization/XmlWriterTechnology.cs#L12) class
+  - [XmlSerializer](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/XmlSerializer.Serialization/XmlSerializerTechnology.cs#L12) class
+  - [XML-DOM model](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/XmlDomWriter.Serialization/XmlDomTechnology.cs#L12)
+  - [X-DOM model](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/XDomWriter.Serialization/XDomTechnology.cs#L12)
+  - [JsonSerializer](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/JsonSerializer.Serialization/JsonSerializerTechnology.cs#L12) class.
 
   <details><summary>See a scheme.</summary>
 
