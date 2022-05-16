@@ -40,7 +40,7 @@ https://metanit.com/python/django/1.1.php
 
 ![](/Images/Architecture3.png)
 
-- Develop a system of the types for exporting data that represent as a string into other XML and JSON format. For serialization use following technologies:
+- Develop a system of the types for exporting data that represent as a string (see [Uri](https://docs.microsoft.com/en-us/dotnet/api/system.uri?view=net-6.0) class) to other XML and JSON format. For serialization use following technologies:
   - XmlWrite class
   - XmlSerializer class
   - XML-DOM model
