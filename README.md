@@ -344,9 +344,8 @@ Use this types to develop a type system
   ```
   </details>
 
-- Do not serialize Uri's that do not match the specified `<scheme>://<host>/<path>?<query>`-pattern, log the information by marking the specified strings as not valid for serialization. To log use `NLog.Extensions.Logging` package.
-
-- Pass all tests.
-- Demonstrate how it works with an example console application.
+- Strings that do not match the specified `<scheme>://<host>/<path>?<query>`-pattern are not converted to an object, respectively, for such strings, object serialization is not performed. Information about not valid string is logged. To log is used `NLog.Extensions.Logging` package.
+- All unit tests should be pass.
+- To demonstrate how it works with various receivers and serializers use console application.
 - To resolve dependencies use the `Microsoft.Extensions.DependencyInjection` package.
 - To configuration console application use `Microsoft.Extensions.Configuration` package.
