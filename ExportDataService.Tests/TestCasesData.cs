@@ -19,11 +19,11 @@ namespace ExportDataService.Tests
 {
     public class TestCasesData
     {
-        const string sourceText = "uri-addresses.txt";
-        const string xmlActual = "uri-addresses.xml";
-        const string jsonActual = "uri-addresses.json";
-        const string xmlExpected = "uri-addresses-result.xml";
-        const string jsonExpected = "uri-addresses-result.json";
+        private const string sourceText = "uri-addresses.txt";
+        private const string xmlActual = "uri-addresses.xml";
+        private const string jsonActual = "uri-addresses.json";
+        private const string xmlExpected = "uri-addresses-result.xml";
+        private const string jsonExpected = "uri-addresses-result.json";
 
         public static IEnumerable<TestCaseData> TestCasesForXmlSerializers
         {

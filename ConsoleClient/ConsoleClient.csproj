@@ -41,7 +41,6 @@
     <ItemGroup>
       <ProjectReference Include="..\Conversion\Conversion.csproj" />
       <ProjectReference Include="..\DataReceiving\DataReceiving.csproj" />
-      <ProjectReference Include="..\ExportDataService.Tests\ExportDataService.Tests.csproj" />
       <ProjectReference Include="..\ExportDataService\ExportDataService.csproj" />
       <ProjectReference Include="..\InMemoryReceiver\InMemoryReceiver.csproj" />
       <ProjectReference Include="..\JsonSerializer.Serialization\JsonSerializer.Serialization.csproj" />

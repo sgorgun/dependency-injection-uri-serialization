@@ -19,9 +19,4 @@
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
 	</ItemGroup>
-	<ItemGroup>
-		<ProjectReference Include="..\DataReceiving\DataReceiving.csproj" />
-		<ProjectReference Include="..\Conversion\Conversion.csproj" />
-		<ProjectReference Include="..\Serialization\Serialization.csproj" />
-	</ItemGroup>
 </Project>
