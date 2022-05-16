@@ -2,15 +2,22 @@
 
 ## Task Description
 
-The system of the types that describe the logic of the export of the string representation of the data to the other format (see `Convertion`, `Validation`, `Serialization`, `DataReceiving`, `ExportDataService` projects) are present in solution.
+The type system that describe the logic of the export of the string representation of the data to the other format (see [Convertion](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Conversion/IConverter.cs#L7), [Validation](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Validation/IValidator.cs#L7), `Serialization`, [DataReceiving](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/DataReceiving/IDataReceiver.cs#L8), [ExportDataService](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Conversion/IConverter.cs#L7)) are present in solution.
+<details><summary>See scheme.</summary>
 
-![](/Images/Architecture1.png)
+  ![](/Images/Architecture1.png)
 
-Use this types for the solution following task.
+</details>
 
-- The some receiver obtains, line by line, information about Uri's that represent of the form `<scheme>://<host>/<path>?<query>`, where   
-  - `path` may consist of segments of the form `segment1/segment2/.../segmentN`, 
-  - `query` consist pairs of the form `key1=value1&...&keyK=valueK`. 
+Use this types for develop a type system 
+  - to reveive as `IEnumerable<string>` data represented as strings that store the information about Uri's in the form `<scheme>://<host>/<path>?<query>`, where   
+    - `path` may consist of segments of the form `segment1/segment2/.../segmentN`,
+    - `query` consist pairs of the form `key1=value1&...&keyK=valueK.
+  - to convert string object to [Uri](https://docs.microsoft.com/en-us/dotnet/api/system.uri?view=net-6.0) object
+  - to export `IEnumerable<Uri>` to XML and JSON formats. 
+  
+  To solve the problem, perform the following steps.
+- Implen some receiver obtains, line by line, 
 
 For example, see content of the `uri-addresses.txt` file
 <details>
@@ -40,7 +47,7 @@ https://metanit.com/python/django/1.1.php
 
 ![](/Images/Architecture3.png)
 
-- Develop a system types to take data represented as strings, convert it to [Uri](https://docs.microsoft.com/en-us/dotnet/api/system.uri?view=net-6.0) objects, and then export them to other XML and JSON formats. Use the following technologies for serialization:t it to other XML and JSON format. For serialization use following technologies:
+ Use the following technologies for serialization:t it to other XML and JSON format. For serialization use following technologies:
   - XmlWrite class
   - XmlSerializer class
   - XML-DOM model
