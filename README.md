@@ -9,15 +9,20 @@ The type system that describe the logic of the export of the string representati
 
 </details>
 
-Use this types for develop a type system 
+Use this types to develop a type system 
   - to reveive as `IEnumerable<string>` data represented as strings that store the information about Uri's in the form `<scheme>://<host>/<path>?<query>`, where   
     - `path` may consist of segments of the form `segment1/segment2/.../segmentN`,
-    - `query` consist pairs of the form `key1=value1&...&keyK=valueK.
-  - to convert string object to [Uri](https://docs.microsoft.com/en-us/dotnet/api/system.uri?view=net-6.0) object
-  - to export `IEnumerable<Uri>` to XML and JSON formats. 
+    - `query` consist pairs of the form `key1=value1&...&keyK=valueK`.
+  - to convert string object to [Uri](https://docs.microsoft.com/en-us/dotnet/api/system.uri?view=net-6.0) object.
+  - to export `IEnumerable<Uri>` to XML and JSON formats.
   
-  To solve the problem, perform the following steps.
-- Implen some receiver obtains, line by line, 
+#### Task details.
+- In implementation consider getting data from both [text](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/TextFileReceiver/TextStreamReceiver.cs#L11) file and [memory](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/InMemoryReceiver/InMemoryDataReceiver.cs#L9).
+  <details><summary>See scheme.</summary>
+
+    ![](/Images/Architecture3.png)
+
+  </details>
 
 For example, see content of the `uri-addresses.txt` file
 <details>
@@ -43,9 +48,7 @@ https://metanit.com/python/django/1.1.php
 ```
 </details>
 
-Сonsider getting data from both text file and memory.
 
-![](/Images/Architecture3.png)
 
  Use the following technologies for serialization:t it to other XML and JSON format. For serialization use following technologies:
   - XmlWrite class
