@@ -2,7 +2,7 @@
 
 ## Task Description
 
-The system of the types that describe the logic of the export of the string representation of the data in the other format are present in solution.
+The system of the types that describe the logic of the export of the string representation of the data to the other format are present in solution.
 
 ![](/Images/Architecture1.png)
 
