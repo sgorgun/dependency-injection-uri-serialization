@@ -14,8 +14,14 @@ Use this types to develop a type system
     - `path` may consist of segments of the form `segment1/segment2/.../segmentN`,
     - `query` consist pairs of the form `key1=value1&...&keyK=valueK`.
   - to convert string object to [Uri](https://docs.microsoft.com/en-us/dotnet/api/system.uri?view=net-6.0) object.
-  - to export `IEnumerable<Uri>` to XML and JSON formats.
+  - to export `IEnumerable<Uri>` to XML and JSON formats. 
   
+<details><summary>See scheme.</summary>
+
+  ![](/Images/Type_Dependencies_Diagram.png)
+
+</details>
+
 #### Task details.
 - In implementation the string receiver functionality consider getting data from both [text](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/TextFileReceiver/TextStreamReceiver.cs#L11) file and [memory](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/InMemoryReceiver/InMemoryDataReceiver.cs#L9).
   <details><summary>See a scheme.</summary>
