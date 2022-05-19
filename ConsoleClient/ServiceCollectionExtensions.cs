@@ -9,6 +9,7 @@ using Serialization;
 using TextFileReceiver;
 using XDomWriter.Serialization;
 using XmlSerializer.Serialization;
+using Microsoft.Extensions.Logging;
 
 namespace ConsoleClient
 {
@@ -22,7 +23,8 @@ namespace ConsoleClient
         /// </summary>
         /// <param name="services">Service collection.</param>
         /// <param name="configuration">Configuration.</param>
-        public static IServiceCollection UseExportDataServices(this IServiceCollection services, IConfiguration configuration, string format, string mode)
+        public static IServiceCollection UseExportDataServices(this IServiceCollection services,
+            IConfiguration configuration, string format, string mode)
         {
             string path = Directory.GetCurrentDirectory();
 
@@ -37,17 +39,24 @@ namespace ConsoleClient
             {
                 "xml" when mode == "inFile" => services
                     .AddTransient<IDataReceiver>(_ => new TextStreamReceiver(txtPath))
-                    .AddTransient<IDataSerializer<Uri>, XDomTechnology>(_ => new XDomTechnology(xmlPath))
-                    .AddTransient<IDataSerializer<Uri>, XmlSerializerTechnology>(_ => new XmlSerializerTechnology(xmlPath)),
+                    .AddTransient<IDataSerializer<Uri>, XDomTechnology>(provider =>
+                        new XDomTechnology(xmlPath, provider.GetService<ILogger<XDomTechnology>>()))
+                    .AddTransient<IDataSerializer<Uri>, XmlSerializerTechnology>(provider =>
+                        new XmlSerializerTechnology(xmlPath, provider.GetService<ILogger<XmlSerializerTechnology>>())),
                 "xml" when mode == "inMemory" => services
                     .AddTransient<IDataReceiver>(_ => new InMemoryDataReceiver())
-                    .AddTransient<IDataSerializer<Uri>, XDomTechnology>(_ => new XDomTechnology(xmlPath)),
+                    .AddTransient<IDataSerializer<Uri>, XDomTechnology>(provider =>
+                        new XDomTechnology(xmlPath, provider.GetService<ILogger<XDomTechnology>>())),
                 "json" when mode == "inFile" => services
                     .AddTransient<IDataReceiver>(_ => new TextStreamReceiver(txtPath))
-                    .AddTransient<IDataSerializer<Uri>, JsonSerializerTechnology>(_ => new JsonSerializerTechnology(jsonPath)),
+                    .AddTransient<IDataSerializer<Uri>, JsonSerializerTechnology>(provider =>
+                        new JsonSerializerTechnology(xmlPath,
+                            provider.GetService<ILogger<JsonSerializerTechnology>>())),
                 "json" when mode == "inMemory" => services
                     .AddTransient<IDataReceiver>(_ => new InMemoryDataReceiver())
-                    .AddTransient<IDataSerializer<Uri>, JsonSerializerTechnology>(_ => new JsonSerializerTechnology(jsonPath)),
+                    .AddTransient<IDataSerializer<Uri>, JsonSerializerTechnology>(provider =>
+                        new JsonSerializerTechnology(xmlPath,
+                            provider.GetService<ILogger<JsonSerializerTechnology>>())),
                 _ => throw new ArgumentException(nameof(format), format, null)
             };
         }
