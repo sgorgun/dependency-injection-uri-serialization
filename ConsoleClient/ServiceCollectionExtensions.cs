@@ -50,12 +50,12 @@ namespace ConsoleClient
                 "json" when mode == "inFile" => services
                     .AddTransient<IDataReceiver>(_ => new TextStreamReceiver(txtPath))
                     .AddTransient<IDataSerializer<Uri>, JsonSerializerTechnology>(provider =>
-                        new JsonSerializerTechnology(xmlPath,
+                        new JsonSerializerTechnology(jsonPath,
                             provider.GetService<ILogger<JsonSerializerTechnology>>())),
                 "json" when mode == "inMemory" => services
                     .AddTransient<IDataReceiver>(_ => new InMemoryDataReceiver())
                     .AddTransient<IDataSerializer<Uri>, JsonSerializerTechnology>(provider =>
-                        new JsonSerializerTechnology(xmlPath,
+                        new JsonSerializerTechnology(jsonPath,
                             provider.GetService<ILogger<JsonSerializerTechnology>>())),
                 _ => throw new ArgumentException(nameof(format), format, null)
             };
