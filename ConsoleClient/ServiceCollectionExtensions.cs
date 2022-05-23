@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using DataReceiving;
 using InMemoryReceiver;
@@ -19,21 +19,20 @@ namespace ConsoleClient
     internal static class ServiceCollectionExtensions
     {
         /// <summary>
-        /// Add northwind services to service collection.
+        /// Add custom services to service collection.
         /// </summary>
-        /// <param name="services">Service collection.</param>
-        /// <param name="configuration">Configuration.</param>
-        public static IServiceCollection UseExportDataServices(this IServiceCollection services,
-            IConfiguration configuration, string format, string mode)
+        /// <param name="services">Source service collection.</param>
+        /// <param name="configuration">The application configuration.</param>
+        /// <param name="format">The data format.</param>
+        /// <param name="mode">The data mode.</param>
+        /// <returns>Returned service collection.</returns>
+        public static IServiceCollection UseExportDataServices(this IServiceCollection services, IConfiguration configuration, string format, string mode)
         {
             string path = Directory.GetCurrentDirectory();
 
-            string txtPath = Path.Combine(path, configuration["textFilePath"]) ??
-                             throw new ArgumentNullException("textFilePath");
-            string xmlPath = Path.Combine(path, configuration["xmlFilePath"]) ??
-                             throw new ArgumentNullException("xmlFilePath");
-            string jsonPath = Path.Combine(path, configuration["jsonFilePath"]) ??
-                              throw new ArgumentNullException("jsonFilePath");
+            string txtPath = Path.Combine(path, configuration["textFilePath"]) ?? throw new ArgumentNullException(configuration["textFilePath"]);
+            string xmlPath = Path.Combine(path, configuration["xmlFilePath"]) ?? throw new ArgumentNullException(configuration["xmlFilePath"]);
+            string jsonPath = Path.Combine(path, configuration["jsonFilePath"]) ?? throw new ArgumentNullException(configuration["jsonFilePath"]);
 
             return format switch
             {
@@ -57,7 +56,7 @@ namespace ConsoleClient
                     .AddTransient<IDataSerializer<Uri>, JsonSerializerTechnology>(provider =>
                         new JsonSerializerTechnology(jsonPath,
                             provider.GetService<ILogger<JsonSerializerTechnology>>())),
-                _ => throw new ArgumentException(nameof(format), format, null)
+                _ => throw new ArgumentException(format, nameof(format), null)
             };
         }
     }
