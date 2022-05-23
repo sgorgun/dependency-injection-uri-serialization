@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using Conversion;
 using ExportDataService;
@@ -21,7 +21,7 @@ namespace ConsoleClient
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .Build();
 
-            var _ = LogManager.Setup()
+            LogManager.Setup()
                 .SetupExtensions(s => s.RegisterConfigSettings(configuration))
                 .GetCurrentClassLogger();
 
