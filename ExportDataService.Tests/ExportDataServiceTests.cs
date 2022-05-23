@@ -11,9 +11,10 @@ namespace ExportDataService.Tests
     public class ExportDataServiceTests
     {
         [TestCaseSource(typeof(TestCasesData), nameof(TestCasesData.TestCasesForXmlSerializers))]
-        public void RunForXmlSerializationTest(IServiceCollection serviceCollection, string sourcePath, string resultPath)
+        public void RunForXmlSerializationTest(IServiceProvider serviceProvider, string sourcePath,
+            string resultPath)
         {
-            var service = serviceCollection.BuildServiceProvider().GetService<ExportDataService<Uri>>();
+            var service = serviceProvider.GetService<ExportDataService<Uri>>();
             service?.Run();
             var actual = XDocument.Load(sourcePath);
             var expected = XDocument.Load(resultPath);
@@ -22,11 +23,12 @@ namespace ExportDataService.Tests
                 .Build();
             Assert.IsFalse(diff.HasDifferences(), diff.ToString());
         }
-        
+
         [TestCaseSource(typeof(TestCasesData), nameof(TestCasesData.TestCasesForJsonSerializers))]
-        public void RunForJsonSerializationTest(IServiceCollection serviceCollection, string sourcePath, string resultPath)
+        public void RunForJsonSerializationTest(IServiceProvider serviceProvider, string sourcePath,
+            string resultPath)
         {
-            var service = serviceCollection.BuildServiceProvider().GetService<ExportDataService<Uri>>();
+            var service = serviceProvider.GetService<ExportDataService<Uri>>();
             service?.Run();
             using var readerActual = new StreamReader(sourcePath);
             var actual = readerActual.ReadToEnd();
