@@ -9,7 +9,7 @@
         <CodeAnalysisRuleSet>..\code-analysis.ruleset</CodeAnalysisRuleSet>
         <GenerateDocumentationFile>false</GenerateDocumentationFile>
         <OutputType>Exe</OutputType>
-        <NoWarn>SA1312,SA1210</NoWarn>
+        <NoWarn>SA1312,SA1210,,SA1116,SA1117</NoWarn>
     </PropertyGroup>
     <ItemGroup>
         <AdditionalFiles Include="..\code-analysis.ruleset" Link="Properties\code-analisys.ruleset" />
