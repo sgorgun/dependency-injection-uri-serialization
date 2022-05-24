@@ -15,7 +15,7 @@ Estimated time to complete the task: 6h.
 
 ## Task Description
 
-The type system that describe the logic of the export of the string representation of the data to the other format (see [Convertion](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Conversion/IConverter.cs#L7), [Validation](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Validation/IValidator.cs#L7), [Serialization](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Serialization/IDataSerializer.cs#L17), [DataReceiving](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/DataReceiving/IDataReceiver.cs#L8), [ExportDataService](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Conversion/IConverter.cs#L7)) are present in solution.
+The type system that describe the logic of the export of the string representation of the data to the other format (see [Convertion](/Conversion/IConverter.cs#L7), [Validation](/Validation/IValidator.cs#L7), [Serialization](/Serialization/IDataSerializer.cs#L17), [DataReceiving](/DataReceiving/IDataReceiver.cs#L8), [ExportDataService](/Conversion/IConverter.cs#L7)) are present in solution.
 <details><summary>See scheme.</summary>
 
   ![](/Images/Architecture1.png)
@@ -36,7 +36,7 @@ Use this types to develop a type system
 </details>
 
 #### Task details.
-- In implementation the string receiver functionality consider getting data from both [text](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/TextFileReceiver/TextStreamReceiver.cs#L11) file and [memory](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/InMemoryReceiver/InMemoryDataReceiver.cs#L9).
+- In implementation the string receiver functionality consider getting data from both [text](/TextFileReceiver/TextStreamReceiver.cs#L11) file and [memory](/InMemoryReceiver/InMemoryDataReceiver.cs#L9).
   <details><summary>See a scheme.</summary>
 
     ![](/Images/Architecture3.png)
@@ -66,11 +66,11 @@ Use this types to develop a type system
   </details>
 
 - In implementation the serialization logic consider following .NET technologies:
-  - [XmlWrite](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/XmlWriter.Serialization/XmlWriterTechnology.cs#L12) class
-  - [XmlSerializer](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/XmlSerializer.Serialization/XmlSerializerTechnology.cs#L12) class
-  - [XML-DOM model](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/XmlDomWriter.Serialization/XmlDomTechnology.cs#L12)
-  - [X-DOM model](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/XDomWriter.Serialization/XDomTechnology.cs#L12)
-  - [JsonSerializer](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/JsonSerializer.Serialization/JsonSerializerTechnology.cs#L12) class.
+  - [XmlWrite](/XmlWriter.Serialization/XmlWriterTechnology.cs#L12) class
+  - [XmlSerializer](/XmlSerializer.Serialization/XmlSerializerTechnology.cs#L12) class
+  - [XML-DOM model](/XmlDomWriter.Serialization/XmlDomTechnology.cs#L12)
+  - [X-DOM model](/XDomWriter.Serialization/XDomTechnology.cs#L12)
+  - [JsonSerializer](/JsonSerializer.Serialization/JsonSerializerTechnology.cs#L12) class.
 
   <details><summary>See a scheme.</summary>
 
