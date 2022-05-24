@@ -1,5 +1,18 @@
 # Dependency Injection. Uri serialization.
 
+A advanced level task for practicing the dependency injection (DI) software design pattern in .NET.
+
+In this task you learn how to
+- use the "Stairway Pattern" when developing applications
+- create a .NET console app that uses dependency injection
+- write several interfaces and corresponding implementations
+- use service lifetime and scoping for DI
+- use the dependency injection along with configuration, logging. 
+
+Additionally, you will be able to repeat various .NET technologies for working with xml and json.
+
+Estimated time to complete the task: 6h.
+
 ## Task Description
 
 The type system that describe the logic of the export of the string representation of the data to the other format (see [Convertion](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Conversion/IConverter.cs#L7), [Validation](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Validation/IValidator.cs#L7), [Serialization](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Serialization/IDataSerializer.cs#L17), [DataReceiving](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/DataReceiving/IDataReceiver.cs#L8), [ExportDataService](https://gitlab.com/autocode-tasks/net-6/dependency-injection-uri-serialization/-/blob/main/Conversion/IConverter.cs#L7)) are present in solution.
