@@ -35,7 +35,7 @@ Use this types to develop a type system
 
 </details>
 
-#### Task details.
+## Task details.
 - In implementation the string receiver functionality consider getting data from both [text](/TextFileReceiver/TextStreamReceiver.cs#L11) file and [memory](/InMemoryReceiver/InMemoryDataReceiver.cs#L9).
   <details><summary>See a scheme.</summary>
 
@@ -66,11 +66,11 @@ Use this types to develop a type system
   </details>
 
 - In implementation the serialization logic consider following .NET technologies:
-  - [XmlWrite](/XmlWriter.Serialization/XmlWriterTechnology.cs#L12) class
-  - [XmlSerializer](/XmlSerializer.Serialization/XmlSerializerTechnology.cs#L12) class
-  - [XML-DOM model](/XmlDomWriter.Serialization/XmlDomTechnology.cs#L12)
-  - [X-DOM model](/XDomWriter.Serialization/XDomTechnology.cs#L12)
-  - [JsonSerializer](/JsonSerializer.Serialization/JsonSerializerTechnology.cs#L12) class.
+  - [XmlWriter](https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlwriter?view=net-6.0) class, [put solution here](/XmlWriter.Serialization/XmlWriterTechnology.cs#L12))
+  - [XmlSerializer](https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer?view=net-6.0) class, [put solution here](/XmlSerializer.Serialization/XmlSerializerTechnology.cs#L12)
+  - [XML-DOM model](https://docs.microsoft.com/en-us/dotnet/api/system.xml?view=net-6.0), [put solution here](/XmlDomWriter.Serialization/XmlDomTechnology.cs#L12)
+  - [X-DOM model](https://docs.microsoft.com/en-us/dotnet/api/system.xml.linq?view=net-6.0), [put solution here](/XDomWriter.Serialization/XDomTechnology.cs#L12)
+  - [JsonSerializer](https://docs.microsoft.com/en-us/dotnet/api/system.text.json.jsonserializer?view=net-6.0) class, [put solution here](/JsonSerializer.Serialization/JsonSerializerTechnology.cs#L12).
 
   <details><summary>See a scheme.</summary>
 
@@ -368,3 +368,9 @@ Use this types to develop a type system
 - To demonstrate how it works with various receivers and serializers use console application.
 - To resolve dependencies use the `Microsoft.Extensions.DependencyInjection` package.
 - To configuration console application use `Microsoft.Extensions.Configuration` package.
+
+## See also
+
+ - [Dependency injection in .NET](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection)
+ - [Dependency injection guidelines](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection-guidelines)
+ - [Using NLog in a .NET 5 Console Application with Dependency Injection and send logs to AWS CloudWatch](https://dev.to/satish/using-nlog-in-a-net-5-console-application-with-dependency-injection-52mm)
