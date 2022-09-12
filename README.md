@@ -66,7 +66,7 @@ Use this types to develop a type system
   </details>
 
 - In implementation the serialization logic consider following .NET technologies:
-  - [XmlWriter](https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlwriter?view=net-6.0) class, [put solution here](/XmlWriter.Serialization/XmlWriterTechnology.cs#L12))
+  - [XmlWriter](https://docs.microsoft.com/en-us/dotnet/api/system.xml.xmlwriter?view=net-6.0) class, [put solution here](/XmlWriter.Serialization/XmlWriterTechnology.cs#L12)
   - [XmlSerializer](https://docs.microsoft.com/en-us/dotnet/api/system.xml.serialization.xmlserializer?view=net-6.0) class, [put solution here](/XmlSerializer.Serialization/XmlSerializerTechnology.cs#L12)
   - [XML-DOM model](https://docs.microsoft.com/en-us/dotnet/api/system.xml?view=net-6.0), [put solution here](/XmlDomWriter.Serialization/XmlDomTechnology.cs#L12)
   - [X-DOM model](https://docs.microsoft.com/en-us/dotnet/api/system.xml.linq?view=net-6.0), [put solution here](/XDomWriter.Serialization/XDomTechnology.cs#L12)
