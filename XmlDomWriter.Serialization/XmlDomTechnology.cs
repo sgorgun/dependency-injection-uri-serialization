@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml;
 using Serialization;
 using Microsoft.Extensions.Logging;
 
@@ -11,6 +12,9 @@ namespace XmlDomWriter.Serialization
     /// </summary>
     public class XmlDomTechnology : IDataSerializer<Uri>
     {
+        private readonly string path;
+        private readonly ILogger<XmlDomTechnology>? logger;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="XmlDomTechnology"/> class.
         /// </summary>
@@ -19,7 +23,13 @@ namespace XmlDomWriter.Serialization
         /// <exception cref="ArgumentException">Throw if text reader is null or empty.</exception>
         public XmlDomTechnology(string? path, ILogger<XmlDomTechnology>? logger = default)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(path))
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+
+            this.path = path;
+            this.logger = logger;
         }
 
         /// <summary>
@@ -29,7 +39,23 @@ namespace XmlDomWriter.Serialization
         /// <exception cref="ArgumentNullException">Throw if the source sequence is null.</exception>
         public void Serialize(IEnumerable<Uri>? source)
         {
-            throw new NotImplementedException();
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+            
+            var xmlDoc = new XmlDocument();
+            var root = xmlDoc.CreateElement("Uris");
+            foreach (var uri in source)
+            {
+                var uriElement = xmlDoc.CreateElement("Uri");
+                uriElement.InnerText = uri.ToString();
+                root.AppendChild(uriElement);
+            }
+            
+            xmlDoc.AppendChild(root);
+            xmlDoc.Save(this.path);
+            this.logger?.LogInformation("Serialization completed successfully.");
         }
     }
 }

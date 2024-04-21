@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 using Microsoft.Extensions.Logging;
 using Serialization;
 
@@ -11,6 +13,9 @@ namespace JsonSerializer.Serialization
     /// </summary>
     public class JsonSerializerTechnology : IDataSerializer<Uri>
     {
+        private readonly string path;
+        private readonly ILogger<JsonSerializerTechnology>? logger;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="JsonSerializerTechnology"/> class.
         /// </summary>
@@ -19,7 +24,13 @@ namespace JsonSerializer.Serialization
         /// <exception cref="ArgumentException">Throw if text reader is null or empty.</exception>
         public JsonSerializerTechnology(string? path, ILogger<JsonSerializerTechnology>? logger = default)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(path))
+            {
+                throw new ArgumentException("Path cannot be null or empty.", nameof(path));
+            }
+            
+            this.path = path;
+            this.logger = logger;
         }
 
         /// <summary>
@@ -29,7 +40,17 @@ namespace JsonSerializer.Serialization
         /// <exception cref="ArgumentNullException">Throw if the source sequence is null.</exception>
         public void Serialize(IEnumerable<Uri>? source)
         {
-            throw new NotImplementedException();
+            var result = (source ?? throw new ArgumentNullException(nameof(source))).Where(uri => true)
+                .Select(uri => uri.ToString());
+
+            using var fileStream = File.Create(this.path);
+            JsonSerializerOptions options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+            };
+            System.Text.Json.JsonSerializer.Serialize(fileStream, result, options);
+            this.logger?.LogInformation("source serialized to {Path} using Json", this.path);
         }
     }
 }

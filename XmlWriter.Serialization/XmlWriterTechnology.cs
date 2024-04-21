@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml;
 using Serialization;
 using Microsoft.Extensions.Logging;
 
@@ -11,6 +12,9 @@ namespace XmlWriter.Serialization
     /// </summary>
     public class XmlWriterTechnology : IDataSerializer<Uri>
     {
+        private readonly string path;
+        private readonly ILogger<XmlWriterTechnology>? logger;
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="XmlWriterTechnology"/> class.
         /// </summary>
@@ -19,7 +23,13 @@ namespace XmlWriter.Serialization
         /// <exception cref="ArgumentException">Throw if text reader is null or empty.</exception>
         public XmlWriterTechnology(string? path, ILogger<XmlWriterTechnology>? logger = default)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(path))
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+
+            this.path = path;
+            this.logger = logger;
         }
 
         /// <summary>
@@ -29,7 +39,28 @@ namespace XmlWriter.Serialization
         /// <exception cref="ArgumentNullException">Throw if the source sequence is null.</exception>
         public void Serialize(IEnumerable<Uri>? source)
         {
-            throw new NotImplementedException();
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+            
+            XmlWriterSettings settings = new XmlWriterSettings { Indent = true };
+            using (System.Xml.XmlWriter writer = System.Xml.XmlWriter.Create(this.path, settings))
+            {
+                writer.WriteStartDocument();
+                writer.WriteStartElement("Uris");
+                foreach (var uri in source)
+                {
+                    writer.WriteStartElement("Uri");
+                    writer.WriteString(uri.ToString());
+                    writer.WriteEndElement();
+                }
+                
+                writer.WriteEndElement();
+                writer.WriteEndDocument();
+            }
+            
+            this.logger?.LogInformation("Serialization completed successfully.");
         }
     }
 }

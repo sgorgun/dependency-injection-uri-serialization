@@ -10,6 +10,9 @@ namespace TextFileReceiver
     /// </summary>
     public class TextStreamReceiver : IDataReceiver
     {
+        private readonly string path;
+        private readonly ILogger<TextStreamReceiver> logger;
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="TextStreamReceiver"/> class.
         /// </summary>
@@ -18,7 +21,13 @@ namespace TextFileReceiver
         /// <exception cref="ArgumentException">Throw if text reader is null or empty.</exception>
         public TextStreamReceiver(string? path, ILogger<TextStreamReceiver>? logger = default)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(path))
+            {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(path));
+            }
+            
+            this.path = path;
+            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         /// <summary>
@@ -27,7 +36,13 @@ namespace TextFileReceiver
         /// <returns>Strings.</returns>
         public IEnumerable<string> Receive()
         {
-            throw new NotImplementedException();
+            using TextReader reader = new StreamReader(this.path);
+            string? line;
+            while ((line = reader.ReadLine()) is not null)
+            {
+                this.logger?.LogTrace("line {Line} received", line);
+                yield return line;
+            }
         }
     }
 }

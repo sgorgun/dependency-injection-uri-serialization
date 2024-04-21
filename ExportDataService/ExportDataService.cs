@@ -12,6 +12,10 @@ namespace ExportDataService
     /// <typeparam name="T">The type data for export.</typeparam>
     public class ExportDataService<T>
     {
+        private readonly IDataReceiver receiver;
+        private readonly IDataSerializer<T> serializer;
+        private readonly IConverter<T> converter;
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="ExportDataService{T}"/> class.
         /// </summary>
@@ -21,7 +25,9 @@ namespace ExportDataService
         /// <exception cref="ArgumentNullException">Trow if receiver, writer or converter is null.</exception>
         public ExportDataService(IDataReceiver receiver, IDataSerializer<T> serializer, IConverter<T> converter)
         {
-            throw new NotImplementedException();
+            this.receiver = receiver ?? throw new ArgumentNullException(nameof(receiver));
+            this.serializer = serializer ?? throw new ArgumentNullException(nameof(serializer));
+            this.converter = converter ?? throw new ArgumentNullException(nameof(converter));
         }
 
         /// <summary>
@@ -31,7 +37,9 @@ namespace ExportDataService
         /// </summary>
         public void Run()
         {
-            throw new NotImplementedException();
+            var data = this.receiver.Receive();
+            var convertedData = data.Select(d => this.converter.Convert(d));
+            this.serializer.Serialize(convertedData.ToList()!);
         }
     }
 }

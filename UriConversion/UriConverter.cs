@@ -10,6 +10,9 @@ namespace UriConversion
     /// </summary>
     public class UriConverter : IConverter<Uri?>
     {
+        private readonly IValidator<string>? validator;
+        private readonly ILogger? logger;
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="UriConverter"/> class.
         /// </summary>
@@ -18,7 +21,8 @@ namespace UriConversion
         /// <exception cref="ArgumentNullException">Throw if validator is null.</exception>
         public UriConverter(IValidator<string>? validator, ILogger<UriConverter>? logger = default)
         {
-            throw new NotImplementedException();
+            this.validator = validator ?? throw new ArgumentNullException(nameof(validator));
+            this.logger = logger;
         }
 
         /// <summary>
@@ -29,7 +33,9 @@ namespace UriConversion
         /// <exception cref="ArgumentNullException">Throw if source string is null.</exception>
         public Uri? Convert(string? obj)
         {
-            throw new NotImplementedException();
+            var isValid = obj != null && this.validator!.IsValid(obj);
+            this.logger?.LogTrace("Converting string {Obj}. Result: {Result}", obj, isValid);
+            return isValid ? new Uri(obj!) : null;
         }
     }
 }

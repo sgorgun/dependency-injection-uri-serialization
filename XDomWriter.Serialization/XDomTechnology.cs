@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using Serialization;
 using Microsoft.Extensions.Logging;
 
@@ -11,6 +12,9 @@ namespace XDomWriter.Serialization
     /// </summary>
     public class XDomTechnology : IDataSerializer<Uri>
     {
+        private readonly string path;
+        private readonly ILogger<XDomTechnology>? logger;
+            
         /// <summary>
         /// Initializes a new instance of the <see cref="XDomTechnology"/> class.
         /// </summary>
@@ -19,7 +23,13 @@ namespace XDomWriter.Serialization
         /// <exception cref="ArgumentException">Throw if text reader is null or empty.</exception>
         public XDomTechnology(string? path, ILogger<XDomTechnology>? logger = default)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(path))
+            {
+                throw new ArgumentNullException(nameof(path), "The provided path cannot be null or empty.");
+            }
+
+            this.path = path;
+            this.logger = logger;
         }
 
         /// <summary>
@@ -29,7 +39,14 @@ namespace XDomWriter.Serialization
         /// <exception cref="ArgumentNullException">Throw if the source sequence is null.</exception>
         public void Serialize(IEnumerable<Uri>? source)
         {
-            throw new NotImplementedException();
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+            
+            XDocument xdoc = new XDocument(new XElement("Uris", source.Select(uri => new XElement("Uri", uri.ToString()))));
+            xdoc.Save(this.path);
+            this.logger?.LogInformation("Serialization completed successfully.");
         }
     }
 }
