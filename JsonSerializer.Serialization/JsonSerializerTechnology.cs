@@ -4,6 +4,7 @@ using System.Text.Json.Serialization;
 using System.Text.Json;
 using Microsoft.Extensions.Logging;
 using Serialization;
+using UriSerializer;
 
 namespace JsonSerializer.Serialization
 {
@@ -28,7 +29,7 @@ namespace JsonSerializer.Serialization
             {
                 throw new ArgumentException("Path cannot be null or empty.", nameof(path));
             }
-            
+
             this.path = path;
             this.logger = logger;
         }
@@ -40,17 +41,24 @@ namespace JsonSerializer.Serialization
         /// <exception cref="ArgumentNullException">Throw if the source sequence is null.</exception>
         public void Serialize(IEnumerable<Uri>? source)
         {
-            var result = (source ?? throw new ArgumentNullException(nameof(source))).Where(uri => true)
-                .Select(uri => uri.ToString());
+            if (source is null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
 
-            using var fileStream = File.Create(this.path);
+            var result = source.Where(uri => uri is not null)
+                               .Select(uri => uri.ToSerializableObject())
+                               .ToArray();
+
+            using var file = File.Create(this.path);
+
             JsonSerializerOptions options = new JsonSerializerOptions
             {
                 WriteIndented = true,
                 DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
             };
-            System.Text.Json.JsonSerializer.Serialize(fileStream, result, options);
-            this.logger?.LogInformation("source serialized to {Path} using Json", this.path);
+            System.Text.Json.JsonSerializer.Serialize(file, result, options);
+            this.logger?.LogInformation("Source has been serialized to the specified path {Path} using Json", this.path);
         }
     }
 }

@@ -21,13 +21,18 @@ namespace TextFileReceiver
         /// <exception cref="ArgumentException">Throw if text reader is null or empty.</exception>
         public TextStreamReceiver(string? path, ILogger<TextStreamReceiver>? logger = default)
         {
+            if (logger == null)
+            {
+                throw new ArgumentNullException(nameof(logger));
+            }
+            
             if (string.IsNullOrEmpty(path))
             {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(path));
             }
             
             this.path = path;
-            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            this.logger = logger;
         }
 
         /// <summary>

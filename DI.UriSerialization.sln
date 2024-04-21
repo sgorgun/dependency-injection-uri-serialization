@@ -35,9 +35,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InMemoryReceiver", "InMemor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExportDataService.Tests", "ExportDataService.Tests\ExportDataService.Tests.csproj", "{322451F3-4848-49E1-971B-71CE6BBF786A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextFileReceiver", "TextFileReceiver\TextFileReceiver.csproj", "{6A184617-E6EC-4B4A-ABBE-E8F8EF752C81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextFileReceiver", "TextFileReceiver\TextFileReceiver.csproj", "{6A184617-E6EC-4B4A-ABBE-E8F8EF752C81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonSerializer.Serialization", "JsonSerializer.Serialization\JsonSerializer.Serialization.csproj", "{42D402BF-D9A2-4314-A5B4-957E03A26BDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonSerializer.Serialization", "JsonSerializer.Serialization\JsonSerializer.Serialization.csproj", "{42D402BF-D9A2-4314-A5B4-957E03A26BDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UriSerializer", "UriSerializer\UriSerializer.csproj", "{57EC9738-4AAA-49FE-8320-93A627790D71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,10 @@ Global
 		{42D402BF-D9A2-4314-A5B4-957E03A26BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42D402BF-D9A2-4314-A5B4-957E03A26BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42D402BF-D9A2-4314-A5B4-957E03A26BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57EC9738-4AAA-49FE-8320-93A627790D71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57EC9738-4AAA-49FE-8320-93A627790D71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57EC9738-4AAA-49FE-8320-93A627790D71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57EC9738-4AAA-49FE-8320-93A627790D71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -122,6 +128,7 @@ Global
 		{1F9B290F-1DBD-4FE6-A174-D43DDF8C9E9B} = {D4731AF9-76AC-4122-9196-13CDA5D8113D}
 		{6A184617-E6EC-4B4A-ABBE-E8F8EF752C81} = {D4731AF9-76AC-4122-9196-13CDA5D8113D}
 		{42D402BF-D9A2-4314-A5B4-957E03A26BDA} = {914ECBE5-FCB0-4DF7-8A80-B42056E2A5ED}
+		{57EC9738-4AAA-49FE-8320-93A627790D71} = {914ECBE5-FCB0-4DF7-8A80-B42056E2A5ED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FD28FB83-853D-427E-A328-58E5540EAB95}

@@ -38,8 +38,9 @@ namespace ExportDataService
         public void Run()
         {
             var data = this.receiver.Receive();
-            var convertedData = data.Select(d => this.converter.Convert(d));
-            this.serializer.Serialize(convertedData.ToList()!);
+            var convertedData = from line in data
+                select this.converter.Convert(line);
+            this.serializer.Serialize(convertedData.ToList());
         }
     }
 }

@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml.Serialization;
+using System.Xml;
 using Serialization;
 using Microsoft.Extensions.Logging;
+using UriSerializer;
 
 namespace XmlSerializer.Serialization
 {
@@ -13,7 +16,7 @@ namespace XmlSerializer.Serialization
     {
         private readonly string path;
         private readonly ILogger<XmlSerializerTechnology>? logger;
-        
+
         /// <summary>
         /// Initializes a new instance of the <see cref="XmlSerializerTechnology"/> class.
         /// </summary>
@@ -38,19 +41,22 @@ namespace XmlSerializer.Serialization
         /// <exception cref="ArgumentNullException">Throw if the source sequence is null.</exception>
         public void Serialize(IEnumerable<Uri>? source)
         {
-            if (source == null)
+            if (source is null)
             {
                 throw new ArgumentNullException(nameof(source));
             }
-            
-            var serializer = new System.Xml.Serialization.XmlSerializer(typeof(Uri));
-            using var writer = new StreamWriter(this.path);
-            foreach (var uri in source)
-            {
-                serializer.Serialize(writer, uri);
-            }
-            
-            this.logger?.LogInformation("Serialization completed successfully.");
+
+            var result = source.Where(uri => uri is not null).Select(uri => uri.ToSerializableObject());
+            var addressContainer = new UriAddressContainer(result);
+
+            var serializer = new System.Xml.Serialization.XmlSerializer(typeof(UriAddressContainer));
+            var namespaces = new XmlSerializerNamespaces();
+            namespaces.Add(string.Empty, string.Empty);
+
+            var settings = new XmlWriterSettings { Indent = true };
+            using var writer = XmlWriter.Create(this.path, settings);
+            serializer.Serialize(writer, addressContainer, namespaces);
+            this.logger?.LogInformation("Source has been serialized to the specified path {Path} using XmlSerializer", this.path);
         }
     }
 }
